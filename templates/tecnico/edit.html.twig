@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Tecnico{% endblock %}
+
+{% block body %}
+    <h1>Edit Tecnico</h1>
+
+    {{ include('tecnico/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_tecnico_index') }}">back to list</a>
+
+    {{ include('tecnico/_delete_form.html.twig') }}
+{% endblock %}

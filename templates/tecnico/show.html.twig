@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tecnico{% endblock %}
+
+{% block body %}
+    <h1>Tecnico</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdTecnico</th>
+                <td>{{ tecnico.idTecnico }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ tecnico.estado }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_tecnico_index') }}">back to list</a>
+
+    <a href="{{ path('app_tecnico_edit', {'idTecnico': tecnico.idTecnico}) }}">edit</a>
+
+    {{ include('tecnico/_delete_form.html.twig') }}
+{% endblock %}

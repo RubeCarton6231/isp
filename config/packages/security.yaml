@@ -1,17 +1,35 @@
 security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
+        App\Entity\Usuario: 'auto'
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\Usuario
+                property: email
         users_in_memory: { memory: null }
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_USER]
+        ROLE_CLIENTE: [ROLE_CLIENTE]
+        ROLE_TECNICO: [ROLE_TECNICO]
+        ROLE_GERENTE: [ROLE_GERENTE]
+        ROLE_FACTURADOR: [ROLE_FACTURADOR]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN]
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             lazy: true
-            provider: users_in_memory
+            provider: app_user_provider
+            custom_authenticator: App\Security\AppCustomAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                target: app_home
+    
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

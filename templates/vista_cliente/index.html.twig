@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello VistaClienteController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    <div class="example-wrapper" style="
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    margin-right: 40px;    
+    margin-top: 30px;">
+    <div style="width: 300px; height: 300px; background-color: rgb(45, 128, 73); border-bottom: 35px solid rgb(27, 70, 38);">
+        <div style="align-items: center;">
+            <a class="btn" href="{{ path('app_ticket_new') }}" style="color: white;font-weight: bold;">
+                <span style="font-size: 1.8rem;">NUEVO TICKET</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
+                    <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5Zm4-1v1h1v-1H4Zm1 3v-1H4v1h1Zm7 0v-1h-1v1h1Zm-1-2h1v-1h-1v1Zm-6 3H4v1h1v-1Zm7 1v-1h-1v1h1Zm-7 1H4v1h1v-1Zm7 1v-1h-1v1h1Zm-8 1v1h1v-1H4Zm7 1h1v-1h-1v1Z"/>
+                  </svg>
+            </a>
+        </div>
+    </div>    
+
+    <div style="width: 300px; height: 300px; background-color: rgb(48, 105, 211); border-bottom: 35px solid rgb(27, 34, 70);">
+        <div style="align-items: center;">
+            <a class="btn" href="{{ path('app_ticket_index') }}" style="color: white;font-weight: bold;">
+                <span style="font-size: 1.8rem;">HISTORIAL</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                  </svg>
+            </a>
+        </div>
+    </div>
+
+    <div style="width: 300px; height: 300px; background-color: rgb(95, 45, 128); border-bottom: 35px solid rgb(65, 27, 70);">
+        <div style="align-items: center;">
+            <a class="btn" href="{{ path('app_gerente_index') }}" style="color: white;font-weight: bold;">
+                <span style="font-size: 1.8rem;">FACTURAS</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16">
+                    <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                    <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                    <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+                  </svg>
+            </a>
+        </div>
+    </div>
+
+ 
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tecnico index{% endblock %}
+
+{% block body %}
+    <h1>Tecnico index</h1>
+<div style="width: 90%;margin: auto; padding: 20px;">
+        <table class="table">
+            <thead style="border: 1px solid #000">
+                <tr style="background-color: rgb(45, 128, 66); color: white; text-align: center;">
+                <th>IdTecnico</th>
+                <th>Usuario</th>
+                <th>Estado</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tecnico in tecnicos %}
+            <tr>
+                <td>{{ tecnico.idTecnico }}</td>
+                <td>{{ tecnico.idUsuario.nombre }}</td>
+                <td>{{ tecnico.estado }}</td>
+                <td>
+                    <a href="{{ path('app_tecnico_show', {'idTecnico': tecnico.idTecnico}) }}">show</a>
+                    <a href="{{ path('app_tecnico_edit', {'idTecnico': tecnico.idTecnico}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <a href="{{ path('app_tecnico_new') }}">Create new</a>
+{% endblock %}

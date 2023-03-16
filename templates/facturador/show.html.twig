@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Facturador{% endblock %}
+
+{% block body %}
+    <h1>Facturador</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdFacturador</th>
+                <td>{{ facturador.idFacturador }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ facturador.estado }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_facturador_index') }}">back to list</a>
+
+    <a href="{{ path('app_facturador_edit', {'idFacturador': facturador.idFacturador}) }}">edit</a>
+
+    {{ include('facturador/_delete_form.html.twig') }}
+{% endblock %}

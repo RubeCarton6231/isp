@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gerente index{% endblock %}
+
+{% block body %}
+    <h1>Gerente index</h1>
+<div style="width: 90%;margin: auto; padding: 20px;">
+        <table class="table">
+            <thead style="border: 1px solid #000">
+                <tr style="background-color: rgb(128, 45, 45); color: white; text-align: center;">
+                <th>IdGerente</th>
+                <th>Usuario</th>
+                <th>Estado</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gerente in gerentes %}
+            <tr>
+                <td>{{ gerente.idGerente }}</td>
+                <td>{{ gerente.idUsuario.nombre }}</td>
+                <td>{{ gerente.estado }}</td>
+                <td>
+                    <a href="{{ path('app_gerente_show', {'idGerente': gerente.idGerente}) }}">show</a>
+                    <a href="{{ path('app_gerente_edit', {'idGerente': gerente.idGerente}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <a href="{{ path('app_gerente_new') }}">Create new</a>
+{% endblock %}

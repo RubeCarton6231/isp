@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticket index{% endblock %}
+
+{% block body %}
+    <h1>Ticket index</h1>
+<div style="width: 90%;margin: auto; padding: 20px;">
+        <table class="table">
+            <thead style="border: 1px solid #000">
+                <tr style="background-color: rgb(128, 45, 93); color: white; text-align: center;">
+                <th>IdTicket</th>                
+                <th>Nombre Problema</th>                
+                <th>DescripcionProblema</th>                
+                <th>Estado</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.idTicket }}</td>            
+                <td>{{ ticket.nombreProblema }}</td>    
+                <td>{{ ticket.descripcionProblema }}</td>                
+                <td>{{ ticket.estado }}</td>
+                <td>
+                    <a href="{{ path('app_ticket_show', {'idTicket': ticket.idTicket}) }}">show</a>
+                    <a href="{{ path('app_ticket_edit', {'idTicket': ticket.idTicket}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <a href="{{ path('app_ticket_new') }}">Create new</a>
+{% endblock %}
